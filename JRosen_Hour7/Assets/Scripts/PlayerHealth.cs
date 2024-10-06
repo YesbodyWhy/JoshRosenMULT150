@@ -17,16 +17,24 @@ public class PlayerHealth : MonoBehaviour
 
         Debug.Log("Health = " + health);
 
-        while (health > 0) //I just used a loop like step 14 indicated, but there WAS a version of this where health -= poisonDamage was copy pasted a million times
-        {
-            health -= poisonDamage;
-            Debug.Log("Health = " + health);
-        }
+        health -= poisonDamage;
+        Debug.Log("Health = " + health);
+        health -= poisonDamage;
+        Debug.Log("Health = " + health);
+        health -= poisonDamage;
+        Debug.Log("Health = " + health);
+        health -= poisonDamage;
+        Debug.Log("Health = " + health);
+        health -= poisonDamage;
+        Debug.Log("Health = " + health);
+        health -= poisonDamage;
+        Debug.Log("Health = " + health);
+        health -= poisonDamage;
+        Debug.Log("Health = " + health);
+        health -= poisonDamage;
+        Debug.Log("Health = " + health);
 
-        if (health <= 0)
-        {
-            Debug.Log("Player has been unalived!");
-        }
+        Debug.Log("Player has been unalived!");
 
     }
 
