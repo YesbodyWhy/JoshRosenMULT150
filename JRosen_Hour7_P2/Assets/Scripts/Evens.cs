@@ -15,7 +15,7 @@ public class Evens : MonoBehaviour
 
         while (evenVal < 100)
         {
-            evenVal += 2;
+            evenValS += 2;
             Debug.Log(evenVal);
         }
 
