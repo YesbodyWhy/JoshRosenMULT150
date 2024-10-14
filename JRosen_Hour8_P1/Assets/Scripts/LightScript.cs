@@ -25,6 +25,7 @@ public class LightScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.L))
         {
+            Debug.Log("L pressed");
             toggle = !toggle;
             LightComponent.enabled = toggle;
         }
