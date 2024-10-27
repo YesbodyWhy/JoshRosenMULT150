@@ -1,0 +1,595 @@
+#usda 1.0
+(
+    "Exported from Adobe Substance 3D Painter 10.1.0"
+    defaultPrim = "Speaker_obj"
+)
+
+def "Speaker_obj"
+{
+    def Scope "material"
+    {
+        def Material "Eye" (
+            customData = {
+                dictionary adobe = {
+                    dictionary painter = {
+                        asset painterProject_spp = @C:/Users/Joshua Gaming Build/Documents/Speaker.spp@
+                    }
+                }
+            }
+        )
+        {
+            asset inputs:basecolor_tex = @Speaker_textures/Speaker_Eye_BaseMap.png@
+            asset inputs:compositedAmbientOcclusion_tex = @Speaker_textures/Speaker_Eye_MaskMap.png@
+            asset inputs:compositedNormalGL_tex = @Speaker_textures/Speaker_Eye_Normal.png@
+            asset inputs:emissive_tex = @Speaker_textures/Speaker_Eye_Emissive.png@
+            asset inputs:metallic_tex = @Speaker_textures/Speaker_Eye_MaskMap.png@
+            asset inputs:opacity_tex = @Speaker_textures/Speaker_Eye_BaseMap.png@
+            token outputs:adobe:surface.connect = </Speaker_obj/material/Eye/AdobeStandardMaterial_4_0/AdobeStandardMaterial_4_0Shader.outputs:surface>
+            token outputs:displacement.connect = </Speaker_obj/material/Eye/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:displacement>
+            token outputs:surface.connect = </Speaker_obj/material/Eye/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:surface>
+
+            def NodeGraph "UsdPreviewSurface"
+            {
+                def Shader "UsdPreviewSurfaceShader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    float3 inputs:diffuseColor.connect = </Speaker_obj/material/Eye/UsdPreviewSurface/diffuseColorTextureShader.outputs:rgb>
+                    float3 inputs:emissiveColor.connect = </Speaker_obj/material/Eye/UsdPreviewSurface/emissiveColorTextureShader.outputs:rgb>
+                    float inputs:ior = 1.5
+                    float inputs:metallic.connect = </Speaker_obj/material/Eye/UsdPreviewSurface/metallicTextureShader.outputs:r>
+                    normal3f inputs:normal.connect = </Speaker_obj/material/Eye/UsdPreviewSurface/normalTextureShader.outputs:rgb>
+                    float inputs:occlusion.connect = </Speaker_obj/material/Eye/UsdPreviewSurface/occlusionTextureShader.outputs:g>
+                    token outputs:displacement
+                    token outputs:surface
+                }
+
+                def Shader "TexCoordReader"
+                {
+                    uniform token info:id = "UsdPrimvarReader_float2"
+                    token inputs:varname = "st"
+                    float2 outputs:result
+                }
+
+                def Shader "diffuseColorTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Speaker_obj/material/Eye.inputs:basecolor_tex>
+                    token inputs:sourceColorSpace = "sRGB"
+                    float2 inputs:st.connect = </Speaker_obj/material/Eye/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float3 outputs:rgb
+                }
+
+                def Shader "metallicTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Speaker_obj/material/Eye.inputs:metallic_tex>
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Speaker_obj/material/Eye/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float outputs:r
+                }
+
+                def Shader "emissiveColorTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Speaker_obj/material/Eye.inputs:emissive_tex>
+                    token inputs:sourceColorSpace = "sRGB"
+                    float2 inputs:st.connect = </Speaker_obj/material/Eye/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float3 outputs:rgb
+                }
+
+                def Shader "occlusionTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Speaker_obj/material/Eye.inputs:compositedAmbientOcclusion_tex>
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Speaker_obj/material/Eye/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float outputs:g
+                }
+
+                def Shader "normalTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    float4 inputs:bias = (-1, -1, -1, 0)
+                    asset inputs:file.connect = </Speaker_obj/material/Eye.inputs:compositedNormalGL_tex>
+                    float4 inputs:scale = (2, 2, 2, 1)
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Speaker_obj/material/Eye/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    normal3f outputs:rgb
+                }
+            }
+
+            def NodeGraph "AdobeStandardMaterial_4_0"
+            {
+                def Shader "AdobeStandardMaterial_4_0Shader"
+                {
+                    uniform token info:id = "AdobeStandardMaterial_4_0"
+                    float inputs:ambientOcclusion.connect = </Speaker_obj/material/Eye/AdobeStandardMaterial_4_0/ambientOcclusionTextureShader.outputs:g>
+                    float3 inputs:baseColor.connect = </Speaker_obj/material/Eye/AdobeStandardMaterial_4_0/baseColorTextureShader.outputs:rgb>
+                    float3 inputs:emissive.connect = </Speaker_obj/material/Eye/AdobeStandardMaterial_4_0/emissiveTextureShader.outputs:rgb>
+                    float inputs:emissiveIntensity = 1
+                    float inputs:IOR = 1.5
+                    float inputs:metallic.connect = </Speaker_obj/material/Eye/AdobeStandardMaterial_4_0/metallicTextureShader.outputs:r>
+                    normal3f inputs:normal.connect = </Speaker_obj/material/Eye/AdobeStandardMaterial_4_0/normalTextureShader.outputs:rgb>
+                    token outputs:surface
+                }
+
+                def Shader "TexCoordReader"
+                {
+                    uniform token info:id = "UsdPrimvarReader_float2"
+                    token inputs:varname = "st"
+                    float2 outputs:result
+                }
+
+                def Shader "baseColorTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Speaker_obj/material/Eye.inputs:basecolor_tex>
+                    token inputs:sourceColorSpace = "sRGB"
+                    float2 inputs:st.connect = </Speaker_obj/material/Eye/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float3 outputs:rgb
+                }
+
+                def Shader "metallicTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Speaker_obj/material/Eye.inputs:metallic_tex>
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Speaker_obj/material/Eye/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float outputs:r
+                }
+
+                def Shader "normalTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    float4 inputs:bias = (-1, -1, -1, 0)
+                    asset inputs:file.connect = </Speaker_obj/material/Eye.inputs:compositedNormalGL_tex>
+                    float4 inputs:scale = (2, 2, 2, 1)
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Speaker_obj/material/Eye/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    normal3f outputs:rgb
+                }
+
+                def Shader "emissiveTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Speaker_obj/material/Eye.inputs:emissive_tex>
+                    token inputs:sourceColorSpace = "sRGB"
+                    float2 inputs:st.connect = </Speaker_obj/material/Eye/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float3 outputs:rgb
+                }
+
+                def Shader "ambientOcclusionTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Speaker_obj/material/Eye.inputs:compositedAmbientOcclusion_tex>
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Speaker_obj/material/Eye/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float outputs:g
+                }
+            }
+        }
+
+        def Material "Speaker" (
+            customData = {
+                dictionary adobe = {
+                    dictionary painter = {
+                        asset painterProject_spp = @C:/Users/Joshua Gaming Build/Documents/Speaker.spp@
+                    }
+                }
+            }
+        )
+        {
+            asset inputs:basecolor_tex = @Speaker_textures/Speaker_Speaker_BaseMap.png@
+            asset inputs:compositedAmbientOcclusion_tex = @Speaker_textures/Speaker_Speaker_MaskMap.png@
+            asset inputs:compositedNormalGL_tex = @Speaker_textures/Speaker_Speaker_Normal.png@
+            asset inputs:emissive_tex = @Speaker_textures/Speaker_Speaker_Emissive.png@
+            asset inputs:metallic_tex = @Speaker_textures/Speaker_Speaker_MaskMap.png@
+            asset inputs:opacity_tex = @Speaker_textures/Speaker_Speaker_BaseMap.png@
+            token outputs:adobe:surface.connect = </Speaker_obj/material/Speaker/AdobeStandardMaterial_4_0/AdobeStandardMaterial_4_0Shader.outputs:surface>
+            token outputs:displacement.connect = </Speaker_obj/material/Speaker/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:displacement>
+            token outputs:surface.connect = </Speaker_obj/material/Speaker/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:surface>
+
+            def NodeGraph "UsdPreviewSurface"
+            {
+                def Shader "UsdPreviewSurfaceShader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    float3 inputs:diffuseColor.connect = </Speaker_obj/material/Speaker/UsdPreviewSurface/diffuseColorTextureShader.outputs:rgb>
+                    float3 inputs:emissiveColor.connect = </Speaker_obj/material/Speaker/UsdPreviewSurface/emissiveColorTextureShader.outputs:rgb>
+                    float inputs:ior = 1.5
+                    float inputs:metallic.connect = </Speaker_obj/material/Speaker/UsdPreviewSurface/metallicTextureShader.outputs:r>
+                    normal3f inputs:normal.connect = </Speaker_obj/material/Speaker/UsdPreviewSurface/normalTextureShader.outputs:rgb>
+                    float inputs:occlusion.connect = </Speaker_obj/material/Speaker/UsdPreviewSurface/occlusionTextureShader.outputs:g>
+                    token outputs:displacement
+                    token outputs:surface
+                }
+
+                def Shader "TexCoordReader"
+                {
+                    uniform token info:id = "UsdPrimvarReader_float2"
+                    token inputs:varname = "st"
+                    float2 outputs:result
+                }
+
+                def Shader "diffuseColorTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Speaker_obj/material/Speaker.inputs:basecolor_tex>
+                    token inputs:sourceColorSpace = "sRGB"
+                    float2 inputs:st.connect = </Speaker_obj/material/Speaker/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float3 outputs:rgb
+                }
+
+                def Shader "metallicTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Speaker_obj/material/Speaker.inputs:metallic_tex>
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Speaker_obj/material/Speaker/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float outputs:r
+                }
+
+                def Shader "emissiveColorTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Speaker_obj/material/Speaker.inputs:emissive_tex>
+                    token inputs:sourceColorSpace = "sRGB"
+                    float2 inputs:st.connect = </Speaker_obj/material/Speaker/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float3 outputs:rgb
+                }
+
+                def Shader "occlusionTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Speaker_obj/material/Speaker.inputs:compositedAmbientOcclusion_tex>
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Speaker_obj/material/Speaker/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float outputs:g
+                }
+
+                def Shader "normalTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    float4 inputs:bias = (-1, -1, -1, 0)
+                    asset inputs:file.connect = </Speaker_obj/material/Speaker.inputs:compositedNormalGL_tex>
+                    float4 inputs:scale = (2, 2, 2, 1)
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Speaker_obj/material/Speaker/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    normal3f outputs:rgb
+                }
+            }
+
+            def NodeGraph "AdobeStandardMaterial_4_0"
+            {
+                def Shader "AdobeStandardMaterial_4_0Shader"
+                {
+                    uniform token info:id = "AdobeStandardMaterial_4_0"
+                    float inputs:ambientOcclusion.connect = </Speaker_obj/material/Speaker/AdobeStandardMaterial_4_0/ambientOcclusionTextureShader.outputs:g>
+                    float3 inputs:baseColor.connect = </Speaker_obj/material/Speaker/AdobeStandardMaterial_4_0/baseColorTextureShader.outputs:rgb>
+                    float3 inputs:emissive.connect = </Speaker_obj/material/Speaker/AdobeStandardMaterial_4_0/emissiveTextureShader.outputs:rgb>
+                    float inputs:emissiveIntensity = 1
+                    float inputs:IOR = 1.5
+                    float inputs:metallic.connect = </Speaker_obj/material/Speaker/AdobeStandardMaterial_4_0/metallicTextureShader.outputs:r>
+                    normal3f inputs:normal.connect = </Speaker_obj/material/Speaker/AdobeStandardMaterial_4_0/normalTextureShader.outputs:rgb>
+                    token outputs:surface
+                }
+
+                def Shader "TexCoordReader"
+                {
+                    uniform token info:id = "UsdPrimvarReader_float2"
+                    token inputs:varname = "st"
+                    float2 outputs:result
+                }
+
+                def Shader "baseColorTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Speaker_obj/material/Speaker.inputs:basecolor_tex>
+                    token inputs:sourceColorSpace = "sRGB"
+                    float2 inputs:st.connect = </Speaker_obj/material/Speaker/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float3 outputs:rgb
+                }
+
+                def Shader "metallicTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Speaker_obj/material/Speaker.inputs:metallic_tex>
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Speaker_obj/material/Speaker/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float outputs:r
+                }
+
+                def Shader "normalTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    float4 inputs:bias = (-1, -1, -1, 0)
+                    asset inputs:file.connect = </Speaker_obj/material/Speaker.inputs:compositedNormalGL_tex>
+                    float4 inputs:scale = (2, 2, 2, 1)
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Speaker_obj/material/Speaker/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    normal3f outputs:rgb
+                }
+
+                def Shader "emissiveTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Speaker_obj/material/Speaker.inputs:emissive_tex>
+                    token inputs:sourceColorSpace = "sRGB"
+                    float2 inputs:st.connect = </Speaker_obj/material/Speaker/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float3 outputs:rgb
+                }
+
+                def Shader "ambientOcclusionTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Speaker_obj/material/Speaker.inputs:compositedAmbientOcclusion_tex>
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Speaker_obj/material/Speaker/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float outputs:g
+                }
+            }
+        }
+
+        def Material "Tongue" (
+            customData = {
+                dictionary adobe = {
+                    dictionary painter = {
+                        asset painterProject_spp = @C:/Users/Joshua Gaming Build/Documents/Speaker.spp@
+                    }
+                }
+            }
+        )
+        {
+            asset inputs:basecolor_tex = @Speaker_textures/Speaker_Tongue_BaseMap.png@
+            asset inputs:compositedAmbientOcclusion_tex = @Speaker_textures/Speaker_Tongue_MaskMap.png@
+            asset inputs:compositedNormalGL_tex = @Speaker_textures/Speaker_Tongue_Normal.png@
+            asset inputs:emissive_tex = @Speaker_textures/Speaker_Tongue_Emissive.png@
+            asset inputs:metallic_tex = @Speaker_textures/Speaker_Tongue_MaskMap.png@
+            asset inputs:opacity_tex = @Speaker_textures/Speaker_Tongue_BaseMap.png@
+            token outputs:adobe:surface.connect = </Speaker_obj/material/Tongue/AdobeStandardMaterial_4_0/AdobeStandardMaterial_4_0Shader.outputs:surface>
+            token outputs:displacement.connect = </Speaker_obj/material/Tongue/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:displacement>
+            token outputs:surface.connect = </Speaker_obj/material/Tongue/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:surface>
+
+            def NodeGraph "UsdPreviewSurface"
+            {
+                def Shader "UsdPreviewSurfaceShader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    float3 inputs:diffuseColor.connect = </Speaker_obj/material/Tongue/UsdPreviewSurface/diffuseColorTextureShader.outputs:rgb>
+                    float3 inputs:emissiveColor.connect = </Speaker_obj/material/Tongue/UsdPreviewSurface/emissiveColorTextureShader.outputs:rgb>
+                    float inputs:ior = 1.5
+                    float inputs:metallic.connect = </Speaker_obj/material/Tongue/UsdPreviewSurface/metallicTextureShader.outputs:r>
+                    normal3f inputs:normal.connect = </Speaker_obj/material/Tongue/UsdPreviewSurface/normalTextureShader.outputs:rgb>
+                    float inputs:occlusion.connect = </Speaker_obj/material/Tongue/UsdPreviewSurface/occlusionTextureShader.outputs:g>
+                    token outputs:displacement
+                    token outputs:surface
+                }
+
+                def Shader "TexCoordReader"
+                {
+                    uniform token info:id = "UsdPrimvarReader_float2"
+                    token inputs:varname = "st"
+                    float2 outputs:result
+                }
+
+                def Shader "diffuseColorTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Speaker_obj/material/Tongue.inputs:basecolor_tex>
+                    token inputs:sourceColorSpace = "sRGB"
+                    float2 inputs:st.connect = </Speaker_obj/material/Tongue/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float3 outputs:rgb
+                }
+
+                def Shader "metallicTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Speaker_obj/material/Tongue.inputs:metallic_tex>
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Speaker_obj/material/Tongue/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float outputs:r
+                }
+
+                def Shader "emissiveColorTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Speaker_obj/material/Tongue.inputs:emissive_tex>
+                    token inputs:sourceColorSpace = "sRGB"
+                    float2 inputs:st.connect = </Speaker_obj/material/Tongue/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float3 outputs:rgb
+                }
+
+                def Shader "occlusionTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Speaker_obj/material/Tongue.inputs:compositedAmbientOcclusion_tex>
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Speaker_obj/material/Tongue/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float outputs:g
+                }
+
+                def Shader "normalTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    float4 inputs:bias = (-1, -1, -1, 0)
+                    asset inputs:file.connect = </Speaker_obj/material/Tongue.inputs:compositedNormalGL_tex>
+                    float4 inputs:scale = (2, 2, 2, 1)
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Speaker_obj/material/Tongue/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    normal3f outputs:rgb
+                }
+            }
+
+            def NodeGraph "AdobeStandardMaterial_4_0"
+            {
+                def Shader "AdobeStandardMaterial_4_0Shader"
+                {
+                    uniform token info:id = "AdobeStandardMaterial_4_0"
+                    float inputs:ambientOcclusion.connect = </Speaker_obj/material/Tongue/AdobeStandardMaterial_4_0/ambientOcclusionTextureShader.outputs:g>
+                    float3 inputs:baseColor.connect = </Speaker_obj/material/Tongue/AdobeStandardMaterial_4_0/baseColorTextureShader.outputs:rgb>
+                    float3 inputs:emissive.connect = </Speaker_obj/material/Tongue/AdobeStandardMaterial_4_0/emissiveTextureShader.outputs:rgb>
+                    float inputs:emissiveIntensity = 1
+                    float inputs:IOR = 1.5
+                    float inputs:metallic.connect = </Speaker_obj/material/Tongue/AdobeStandardMaterial_4_0/metallicTextureShader.outputs:r>
+                    normal3f inputs:normal.connect = </Speaker_obj/material/Tongue/AdobeStandardMaterial_4_0/normalTextureShader.outputs:rgb>
+                    token outputs:surface
+                }
+
+                def Shader "TexCoordReader"
+                {
+                    uniform token info:id = "UsdPrimvarReader_float2"
+                    token inputs:varname = "st"
+                    float2 outputs:result
+                }
+
+                def Shader "baseColorTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Speaker_obj/material/Tongue.inputs:basecolor_tex>
+                    token inputs:sourceColorSpace = "sRGB"
+                    float2 inputs:st.connect = </Speaker_obj/material/Tongue/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float3 outputs:rgb
+                }
+
+                def Shader "metallicTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Speaker_obj/material/Tongue.inputs:metallic_tex>
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Speaker_obj/material/Tongue/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float outputs:r
+                }
+
+                def Shader "normalTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    float4 inputs:bias = (-1, -1, -1, 0)
+                    asset inputs:file.connect = </Speaker_obj/material/Tongue.inputs:compositedNormalGL_tex>
+                    float4 inputs:scale = (2, 2, 2, 1)
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Speaker_obj/material/Tongue/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    normal3f outputs:rgb
+                }
+
+                def Shader "emissiveTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Speaker_obj/material/Tongue.inputs:emissive_tex>
+                    token inputs:sourceColorSpace = "sRGB"
+                    float2 inputs:st.connect = </Speaker_obj/material/Tongue/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float3 outputs:rgb
+                }
+
+                def Shader "ambientOcclusionTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </Speaker_obj/material/Tongue.inputs:compositedAmbientOcclusion_tex>
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </Speaker_obj/material/Tongue/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float outputs:g
+                }
+            }
+        }
+    }
+
+    over "Speaker"
+    {
+        over "Speaker" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Speaker_obj/material/Speaker>
+        }
+    }
+
+    over "Tongue"
+    {
+        over "Tongue" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Speaker_obj/material/Tongue>
+        }
+    }
+
+    over "Eye1"
+    {
+        over "Eye1" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Speaker_obj/material/Eye>
+        }
+    }
+
+    over "Eye2"
+    {
+        over "Eye2" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Speaker_obj/material/Eye>
+        }
+    }
+}
+
