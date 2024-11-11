@@ -3,27 +3,22 @@ GameCritic:
 
 
 
-Try changing the size or shape of the player’s bumper.
-I REDID THE CHARACTER!! AND ALSO...
-A change of the camera, and a redo of the entire movement system! For example, what if you could click and drag your mouse to move your boxcollider like a slingshot!
+1.Try changing the size or shape of the player’s bumper.
+Changed to Fist
 
+2. Try changing the footsteps audio to something that makes more
+sense with the water.
+Since the glove is rocket powered, there are sounds of fmales being put out as the footsteps
 
-► Is the game too easy or hard?
+3. Try adding variations of the chaos balls
 
-TOO EASY! AND BUGGY THE SPRINT MAKES THE COLLISIONS NOT WORK EEWWW
+Now there are evil chaos balls that chase down the Closest BALL!!! MWAHAHAHAHHAA I LOVE BALLS who said that
 
-► What would make it easier or harder?
+4.Try covering up the water with a terrain, plane, or other game
+objects around the border of the arena.
 
-ANY Failstate, maybe if you touch too many chaos balls you die! OR IF YOU RUN OUT OF TIME YOU WAKE UP NAKED AT SCHOOL AND EVERYONE IS LAUGHING AT YOU!!!
+Wrestling ring!!!
 
-► What would give it a “wow” factor?
-
-A change of the camera, and a redo of the entire movement system! For example, what if you could click and drag your mouse to move your boxcollider like a slingshot!
-
-► What parts of the game are fun? What parts of the game are tedious?
-
-The balls are definitely fun to play with. But there's more to gaming than just playing with the developer's balls (Don't quote me on that), for example, in "Thank Goodness You're Here!" the player interacts with the world by slapping, in this game, the player interacts with balls by pushing!
-Do the balls or cube take advantage of this mechanic? No! They should be designed so that the player knows exactly what they're supposed to do! Which is why the balls should have terrified faces, and the player should be a giant fist on a rocket launcher!
 
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@**#%@@@@@%**-:..:::::::::-----=+**##********#%%%#####**++*#*##*=+****+===++==--=====+**++****************###**++*****#%%%@@@@@@@@@@@@%@@@@@@@@@@@@%@@@@@@@@@@%%%%@@@@@%%@@@@

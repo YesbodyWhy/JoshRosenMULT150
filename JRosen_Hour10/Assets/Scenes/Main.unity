@@ -2461,7 +2461,7 @@ GameObject:
   - component: {fileID: 1503404233}
   m_Layer: 0
   m_Name: Green Goal
-  m_TagString: Orange
+  m_TagString: Green
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2646,8 +2646,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1550520879}
-  m_LocalRotation: {x: -0.12978522, y: 0.6098241, z: 0.102108754, w: 0.7751414}
-  m_LocalPosition: {x: -45.315075, y: -26.466122, z: -14.4693775}
+  m_LocalRotation: {x: -0.32900083, y: 0.09157332, z: 0.032071643, w: 0.9393318}
+  m_LocalPosition: {x: -13.741168, y: -13.761674, z: -7.785145}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
