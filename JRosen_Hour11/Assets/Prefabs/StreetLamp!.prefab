@@ -221,6 +221,7 @@ GameObject:
   - component: {fileID: 7086652458891825407}
   - component: {fileID: 3478433607095919740}
   - component: {fileID: 8577961458116196721}
+  - component: {fileID: 1453811217}
   m_Layer: 0
   m_Name: LampStand
   m_TagString: Untagged
@@ -294,3 +295,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!54 &1453811217
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5385488136001444062}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
