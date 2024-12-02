@@ -5,7 +5,7 @@ using UnityEngine;
 public class LampAnimator : MonoBehaviour
 {
 
-    public Animator animator;
+    Animator animator;
 
     // Start is called before the first frame update
     void Start()
