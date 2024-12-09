@@ -185,6 +185,8 @@ MonoBehaviour:
   powerupPrefab: {fileID: 5089555919398690987, guid: 8c7ae7e98958cd0488e6de87e6664b2b, type: 3}
   obstaclePrefab: {fileID: 1814503555346180966, guid: 96c36189fa49c534cb1088acc2937443, type: 3}
   spawnCycle: 0.5
+  RepeatCounter: 0
+  LastSpawned: 0
 --- !u!1 &620011769
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,7 +781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42b2c5ee3e6c4014d9b092611390093d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
+  speed: 1
 --- !u!1001 &1849908751
 PrefabInstance:
   m_ObjectHideFlags: 0

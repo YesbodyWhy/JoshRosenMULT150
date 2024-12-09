@@ -26,7 +26,7 @@ Additionally, the lack of clear theming with the powerups and obstacles not bein
 
 /*
  
-I did six different things to make the game a bit more fun: 
+I did eight different things to make the game a bit more fun: 
 
 1. I added a progressive difficulty, meaning the better you do, the faster the game gets.
 
@@ -40,4 +40,8 @@ I did six different things to make the game a bit more fun:
 
 6. I extended the timer in order for it to house more than just integers. The tenths of seconds serve well, as I drastically lowered the amount of time the powerups give you.
  
+7. I varied the spawn Cycle randomly as things spawn, so gameplay can feel more varied, with more clustered parts, and less clustered parts as the game moves on.
+
+8. I changed the system in which the game chooses to spawn poweruips and obstacles, where it is random, and more likely to repeat clusters of power ups or obstacles, BUT it has a failsafe that makes it switch over if 12 of the powerups or obstacles spawn in a row, in order to ensure the game is always balanced and possible.
+
  */
