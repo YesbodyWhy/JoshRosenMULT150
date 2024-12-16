@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 982226}
   - component: {fileID: 982225}
   - component: {fileID: 982224}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Wall
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 26720935}
   - component: {fileID: 26720934}
   - component: {fileID: 26720933}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Wall
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -757,7 +757,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 4
-  m_CollisionDetection: 2
+  m_CollisionDetection: 1
 --- !u!135 &210774810
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -765,7 +765,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 210774808}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: f51d51f4276049e4c8581f39c7a70c88, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1053,7 +1053,7 @@ GameObject:
   - component: {fileID: 411915749}
   - component: {fileID: 411915748}
   - component: {fileID: 411915747}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Wall (1)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -1147,7 +1147,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 415445497}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: -XWall
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -1264,7 +1264,7 @@ GameObject:
   - component: {fileID: 506605647}
   - component: {fileID: 506605646}
   - component: {fileID: 506605645}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Wall
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -1608,7 +1608,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 1
 --- !u!114 &535216757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1641,7 +1641,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 575460356}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: XWall
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -2045,7 +2045,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 4
-  m_CollisionDetection: 2
+  m_CollisionDetection: 1
 --- !u!135 &875173393
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2319,7 +2319,7 @@ GameObject:
   - component: {fileID: 954826733}
   - component: {fileID: 954826732}
   - component: {fileID: 954826731}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Wall
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -2475,7 +2475,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 992224117}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2510,7 +2510,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1058627345}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: -ZWall
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -2693,7 +2693,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 4
-  m_CollisionDetection: 2
+  m_CollisionDetection: 1
 --- !u!135 &1231589542
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2765,7 +2765,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1231589540}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8, y: 2, z: 7}
+  m_LocalPosition: {x: -13.16, y: 2, z: -6.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2807,7 +2807,7 @@ GameObject:
   - component: {fileID: 1286576314}
   - component: {fileID: 1286576313}
   - component: {fileID: 1286576312}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Wall (2)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -3499,7 +3499,7 @@ GameObject:
   - component: {fileID: 1684591188}
   - component: {fileID: 1684591187}
   - component: {fileID: 1684591186}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Wall (1)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -3601,7 +3601,7 @@ GameObject:
   - component: {fileID: 1779773825}
   - component: {fileID: 1779773824}
   - component: {fileID: 1779773823}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Wall (1)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -3695,7 +3695,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1797655875}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ZWall
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -4136,7 +4136,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 4
-  m_CollisionDetection: 2
+  m_CollisionDetection: 1
 --- !u!135 &2040135461
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4144,7 +4144,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2040135459}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: f51d51f4276049e4c8581f39c7a70c88, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -9392,8 +9392,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 594.45917, y: 302.6425, z: 635.3864}
-  m_Center: {x: 97.18955, y: 155.70526, z: 134.74855}
+  m_Size: {x: 1178.8783, y: 628.53033, z: 1431.0957}
+  m_Center: {x: 389.40454, y: -7.236862, z: 532.6053}
 --- !u!65 &7268604775020469605
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9405,8 +9405,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 594.45917, y: 302.6425, z: 635.3864}
-  m_Center: {x: 97.18955, y: 155.70526, z: 134.74855}
+  m_Size: {x: 1181.9443, y: 656.1353, z: 1423.1635}
+  m_Center: {x: 390.93243, y: -21.042633, z: 528.6357}
 --- !u!1 &8577593113244606207
 GameObject:
   m_ObjectHideFlags: 0
