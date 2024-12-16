@@ -234,7 +234,7 @@ public class DragToMove : MonoBehaviour
         //transform.rotation = Quaternion.LookRotation(reflectedDirection);
 
         moveDirection = -moveDirection;
-        transform.rotation = Quaternion.LookRotation(moveDirection);
+        character.transform.rotation = Quaternion.LookRotation(moveDirection);
     }
 
 }
